@@ -5,11 +5,14 @@ export default function TextForm(props) {
   const onHandleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UpperCase" , "Success")
   };
   //convert text to lowercase
   const onHandleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to LowerCase" , "Success")
+
   };
   const onHandleChange = (event) => {
     console.log("onChange");
@@ -24,6 +27,8 @@ export default function TextForm(props) {
     var text = document.getElementById("myTextArea");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text is copied to clipboard" , "Success")
+
   };
   //remove extra  spaces and replace them with single space instaed
   const removeSpaces = () => {
@@ -53,7 +58,7 @@ export default function TextForm(props) {
           id="myTextArea"
           rows="5"
         ></textarea>
-        <button className="btn btn-success my-3 mx-1" onClick={onHandleUpClick}>
+        <button className="btn btn-success my-3 mx-1" onClick={onHandleUpClick} >
           convert to uppercase{" "}
         </button>
         <button className="btn btn-success my-3 mx-1" onClick={onHandleLoClick}>

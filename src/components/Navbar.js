@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import PropTypes from "prop-types";
+import './Navbar.css'
 
 export default function Navbar(props) {
+    const [mode, setMode]=useState('light')
+    const purpleMode=(color)=>{
+         setMode(color)
+         document.body.style.backgroundColor='#042743'
 
-
+      }
   return (
     <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
       <div className="container-fluid">
@@ -34,21 +39,19 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
+        
+          <div className={`circular_element1  bg-${props.mode} `} onClick={props.purpleMode} >  </div>   
+
+          <div className="circular_element2">  </div>
+          <div className="circular_element3">  </div>
+         
+
           <div className={`form-check form-switch text-${props.mode==='light'?'dark' : 'light'} `}>
   <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='light'? 'Enable Dark Mode' : 'Enable Light Mode '}</label>
 </div>
-          {/* <form className="d-flex" role="search">
-            <input  
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> */}
+        
+        
         </div>
       </div>
     </nav>
