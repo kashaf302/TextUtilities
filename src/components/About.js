@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-
-export default function About() {
-
+import { useLocation } from 'react-router-dom'
+export default function About(props) {
+  // console.log('props', location.state.string)
     const [myStyle, setMyStyle]=useState({
         color:'black',
         backgroundColor: 'white'
@@ -24,9 +24,11 @@ export default function About() {
             setBtnText("Enable Dark Mode")
         }   
     }
+    const location = useLocation();
   return (
     <div className='container' style={myStyle}>
-        <h1>About Us</h1>
+      {location.state?.string? <h1>{location.state.string}</h1>:<h1>I cam from navbar</h1>}
+        <h1>About Ussss</h1>
     <div className="accordion" id="accordionExample" >
     <div className="accordion-item" style={myStyle}>
       <h2 className="accordion-header">

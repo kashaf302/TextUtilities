@@ -5,7 +5,7 @@ import Home from './components/Home'
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
 const heading = "Enter Text to Analyze";
 
 function App() {
